@@ -45,44 +45,6 @@ const ModalTask = ({
               placeholder="Enter task description"
             />
           </div>
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">
-              Status
-            </label>
-            <select
-              value={taskData.status}
-              onChange={(e) =>
-                setTaskData({ ...taskData, status: e.target.value })
-              }
-              className="border px-4 py-2 rounded-lg w-full mt-1"
-            >
-              <option value="" disabled>
-                Select Status
-              </option>
-              <option value="to-do">To Do</option>
-              <option value="doing">Doing</option>
-              <option value="done">Done</option>
-            </select>
-          </div>
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">
-              Priority
-            </label>
-            <select
-              value={taskData.priority}
-              onChange={(e) =>
-                setTaskData({ ...taskData, priority: e.target.value })
-              }
-              className="border px-4 py-2 rounded-lg w-full mt-1"
-            >
-              <option value="" disabled>
-                Select Priority
-              </option>
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-              <option value="high">High</option>
-            </select>
-          </div>
           <div className="flex justify-end space-x-2">
             <button
               type="button"

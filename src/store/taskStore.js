@@ -3,25 +3,21 @@ import { create } from "zustand";
 const useTaskStore = create((set) => ({
   tasks: [],
 
-  // Agregar una tarea
   addTask: (task) =>
     set((state) => ({
       tasks: [...state.tasks, task],
     })),
 
-  // Actualizar una tarea
-  updateTask: (id, updatedTask) =>
+  updateTask: (_id, updatedTask) =>
     set((state) => ({
-      tasks: state.tasks.map((task) => (task.id === id ? updatedTask : task)),
+      tasks: state.tasks.map((task) => (task._id === _id ? updatedTask : task)),
     })),
 
-  // Eliminar una tarea
-  deleteTask: (id) =>
+  deleteTask: (_id) =>
     set((state) => ({
-      tasks: state.tasks.filter((task) => task.id !== id),
+      tasks: state.tasks.filter((task) => task._id !== _id),
     })),
 
-  // Limpiar todas las tareas
   clearTasks: () => set({ tasks: [] }),
 }));
 

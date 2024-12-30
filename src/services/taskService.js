@@ -1,9 +1,12 @@
-import axios from "../mocks/axiosMock";
+import axios from "axios";
+
+const API_BASE_URL =
+  "https://task-manager-backend-production-9728.up.railway.app/api/tasks";
 
 export const fetchTasks = async () => {
   try {
-    const response = await axios.get("/api/tasks");
-    return response.data.tasks;
+    const response = await axios.get(API_BASE_URL);
+    return response.data;
   } catch (error) {
     console.error(error);
     throw new Error("Error fetching tasks");
@@ -12,27 +15,28 @@ export const fetchTasks = async () => {
 
 export const createTask = async (task) => {
   try {
-    const response = await axios.post("/api/tasks", task);
-    return response.data.task;
+    const response = await axios.post(API_BASE_URL, task);
+    return response.data;
   } catch (error) {
     console.error(error);
     throw new Error("Error adding task");
   }
 };
 
-export const updateTask = async (taskId, task) => {
+export const updateTaskDB = async (taskId, task) => {
   try {
-    const response = await axios.put(`/api/tasks/${taskId}`, task);
-    return response.data.task;
+    const response = await axios.put(`${API_BASE_URL}/${taskId}`, task);
+    console.log("response", response);
+    return response.data;
   } catch (error) {
     console.error(error);
     throw new Error("Error updating task");
   }
 };
 
-export const deleteTask = async (taskId) => {
+export const deleteTaskDB = async (taskId) => {
   try {
-    await axios.delete(`/api/tasks/${taskId}`);
+    await axios.delete(`${API_BASE_URL}/${taskId}`);
   } catch (error) {
     console.error(error);
     throw new Error("Error deleting task");
