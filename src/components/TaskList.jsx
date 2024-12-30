@@ -19,7 +19,6 @@ export default function TaskList() {
     isEditModalOpen,
     taskToEdit,
     setTaskToEdit,
-    setIsModalDeleteOpen,
     setIsEditModalOpen,
     setIsModalOpen,
     newTask,

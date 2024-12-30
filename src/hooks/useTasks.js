@@ -6,10 +6,8 @@ import {
   createTask,
   deleteTaskDB,
   updateTaskDB,
-  getTaskById,
 } from "../services/taskService";
 import { toast } from "react-toastify";
-import axios from "axios";
 
 const useTasks = () => {
   const { tasks, addTask, updateTask, deleteTask, clearTasks } = useTaskStore();
@@ -128,16 +126,6 @@ const useTasks = () => {
     setFilter(newFilter);
   };
 
-  const getTaskDetails = async (taskId) => {
-    try {
-      const taskDetails = await getTaskById(taskId);
-      return taskDetails;
-    } catch (error) {
-      console.error("Error fetching task details:", error);
-      toast.error("Error fetching task details");
-    }
-  };
-
   return {
     tasks,
     loading,
@@ -159,7 +147,6 @@ const useTasks = () => {
     setNewTask,
     toggleTaskStatus,
     handleFilterChange,
-    getTaskDetails,
   };
 };
 
