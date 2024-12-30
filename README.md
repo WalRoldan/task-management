@@ -72,6 +72,15 @@ npm run dev
 
 La aplicación estará disponible en `http://localhost:3001`.
 
+### Pantalla de Login
+
+En la pantalla de inicio de sesión, utiliza las siguientes credenciales:
+
+- **Email:** `admin@example.com`
+- **Password:** `password123`
+
+Una vez autenticado, serás redirigido al dashboard.
+
 ## Detalles de Configuración
 
 ### Backend
