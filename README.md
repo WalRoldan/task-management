@@ -1,84 +1,107 @@
-# TodoApp-SEEK
+# Task Management App
 
-## Descripción del Proyecto
+Este proyecto es una aplicación para la gestión de tareas, donde los usuarios pueden crear, ver, actualizar y eliminar tareas de manera fácil y rápida. Está dividido en dos partes: el frontend desarrollado con React (Next.js) y el backend desarrollado con Node.js (Express) y MongoDB como base de datos.
 
-TodoApp-SEEK es una aplicación para la gestión de tareas que permite visualizar, crear, actualizar y eliminar tareas de manera organizada. Las tareas se agrupan en tres columnas según su estado, y cada tarea se resalta con un color que indica su prioridad.
+## Enlace a la Aplicación Desplegada
 
----
+- **Frontend (Aplicación Web):** [https://task-management-walrol.vercel.app/dashboard](https://task-management-walrol.vercel.app/dashboard)
+- **Backend (API REST):** [https://task-manager-backend-production-9728.up.railway.app](https://task-manager-backend-production-9728.up.railway.app)
 
-## Requisitos Previos
+## Repositorios
 
-Asegúrate de tener instalado lo siguiente en tu sistema:
+- **Frontend Repository (React):** [https://github.com/WalRoldan/task-management.git](https://github.com/WalRoldan/task-management.git)
+- **Backend Repository (Node.js):** [https://github.com/WalRoldan/task-manager-backend.git](https://github.com/WalRoldan/task-manager-backend.git)
 
-- [Node.js](https://nodejs.org/) (versión 16 o superior)
-- [Git](https://git-scm.com/)
+## Pasos para Ejecutar el Proyecto Localmente
 
----
+### 1. Clonar el Repositorio
 
-## Instrucciones de Instalación
+Para comenzar, clona ambos repositorios (frontend y backend) en tu máquina local:
 
-Sigue estos pasos para clonar e instalar el proyecto en tu entorno local:
+```bash
+git clone https://github.com/WalRoldan/task-management.git
+git clone https://github.com/WalRoldan/task-manager-backend.git
+```
 
-1. **Clonar el Repositorio**  
-   Ejecuta el siguiente comando en tu terminal para clonar el proyecto:
+### 2. Instalar Dependencias
 
-   ```bash
-   git clone https://github.com/WalRoldan/todoApp-SEEK.git
-   ```
+Ve al directorio del backend y frontend y ejecuta el siguiente comando para instalar las dependencias necesarias.
 
-2. **Navegar al Directorio del Proyecto**
+#### Backend
 
-   ```bash
-   cd todoApp-SEEK
-   ```
+```bash
+cd task-manager-backend
+npm install
+```
 
-3. **Instalar las Dependencias**  
-   Instala las dependencias del proyecto ejecutando:
+#### Frontend
 
-   ```bash
-   npm install
-   ```
+```bash
+cd task-management
+npm install
+```
 
-4. **Levantar el Proyecto en Local**  
-   Inicia el servidor de desarrollo con el siguiente comando:
+### 3. Configuración de Variables de Entorno
 
-   ```bash
-   npm start
-   ```
+Asegúrate de tener un archivo `.env` en el directorio raíz del **backend** con las siguientes variables de entorno configuradas:
 
-   La aplicación estará disponible en `http://localhost:3000`.
+```env
+PORT=3000
+MONGO_URI=mongodb+srv://walRol:<YOUR_PASSWORD>@todoapp.thojd.mongodb.net/
+```
 
----
+- **MONGO_URI:** La URL de conexión de tu base de datos MongoDB en Atlas. Asegúrate de reemplazar `<YOUR_PASSWORD>` con tu contraseña de MongoDB.
 
-## Uso de la Aplicación
+### 4. Ejecutar el Backend
 
-### Pantalla de Login
+Para iniciar el backend de la aplicación, ve al directorio del backend y ejecuta:
 
-En la pantalla de inicio de sesión, utiliza las siguientes credenciales:
+```bash
+npm run dev
+```
 
-- **Email:** `admin@example.com`
-- **Password:** `password123`
+El servidor estará corriendo en `http://localhost:3000`.
 
-Una vez autenticado, serás redirigido al dashboard.
+### 5. Ejecutar el Frontend
 
-### Dashboard
+Para iniciar el frontend de la aplicación, ve al directorio del frontend y ejecuta:
 
-El dashboard está dividido en tres columnas que representan los estados de las tareas:
+```bash
+npm run dev
+```
 
-1. **To Do**
-2. **Doing**
-3. **Done**
+La aplicación estará disponible en `http://localhost:3001`.
 
-### Gestión de Tareas
+## Detalles de Configuración
 
-- Al **editar** o **crear una nueva tarea**, esta se mostrará automáticamente en la columna correspondiente según su estado.
-- Las tareas están representadas por tarjetas que incluyen un sombreado de color según su **prioridad**:
-  - **Rojo:** Alta prioridad
-  - **Amarillo:** Media prioridad
-  - **Verde:** Baja prioridad
+### Backend
 
----
+- **Tecnologías utilizadas:**
 
-## Contacto
+  - Node.js
+  - Express
+  - MongoDB (Mongoose)
+  - Swagger para documentación de la API
+  - Nodemon para desarrollo
 
-Si tienes alguna pregunta o necesitas soporte, no dudes en ponerte en contacto a través del repositorio.
+- **Archivos relevantes:**
+  - `.env`: Contiene variables de entorno como el puerto (`PORT`) y la URL de conexión a la base de datos (`MONGO_URI`).
+  - `src/index.js`: El archivo principal que configura y ejecuta el servidor.
+  - `src/routes/taskRoutes.js`: Define las rutas de la API para tareas.
+
+### Frontend
+
+- **Tecnologías utilizadas:**
+
+  - React (Next.js)
+  - Axios para la comunicación con la API
+  - Zustand para la gestión del estado global
+  - TailwindCSS para el diseño
+
+- **Archivos relevantes:**
+  - `pages/dashboard.js`: La página principal que muestra las tareas.
+  - `services/taskService.js`: Contiene funciones para interactuar con la API del backend.
+
+## Licencia
+
+Este proyecto está bajo la licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
